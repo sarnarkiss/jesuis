@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import type { Locale } from "@/src/i18n/routing";
 import { fetchSettings } from "@/src/sanity/fetch";
-import ProjectButton from "@/src/components/projectButton/ProjectButton";
+import ProjectButton, { isProjectOpen } from "@/src/components/projectButton/ProjectButton";
 import ProjectThemes from "@/src/components/sections/ProjectThemes";
 import LeadForm from "@/src/components/leadForm/LeadForm";
 
@@ -22,7 +22,7 @@ export default async function ProjectPage({ params }: Props) {
   setRequestLocale(locale);
 
   const [t, settings] = await Promise.all([getTranslations("project"), fetchSettings()]);
-  const isOpen = settings.mainProjectStatus === "open";
+  const isOpen = isProjectOpen(settings);
 
   return (
     <>

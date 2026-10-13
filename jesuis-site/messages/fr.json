@@ -68,10 +68,16 @@
     ],
     "more": "Découvrir le projet",
     "soon": "Bientôt",
-    "join": "Rejoindre",
+    "join": "Rejoindre sur Telegram",
     "quote": "Le chemin d'une femme qui comprend un jour que le voyage le plus important est le retour à soi.",
     "soonNote": "Le programme est en préparation. Recevez le guide gratuit et soyez la première informée du lancement.",
-    "openNote": "Paiement et participation via la chaîne Telegram du projet."
+    "openNote": "Mon espace d'autrice sur Telegram. Choisissez les thèmes qui vous intéressent et découvrez mon univers.",
+    "telegram": {
+      "title": "Je Suis",
+      "text": "Mon espace d'autrice sur Telegram, où j'écris des livres, des textes, des observations et des projets sur la vie, la quête de soi et de nouveaux sens.",
+      "hint": "Choisissez les thèmes qui vous intéressent et découvrez mon univers.",
+      "welcome": "Bienvenue !"
+    }
   },
   "products": {
     "eyebrow": "Mes produits",
@@ -102,7 +108,7 @@
   "video": {
     "eyebrow": "Vidéo",
     "title": "Faisons connaissance",
-    "text": "Pas une publicité. Simplement une conversation sur qui je suis et pourquoi je fais ce que je fais.",
+    "text": "Aujourd'hui, je vis sur la Côte d'Azur, et c'est déjà ma troisième immigration. Ici a commencé un nouveau chapitre de ma vie, que je souhaite partager avec vous à travers mes pensées, mes observations, mes livres et mes découvertes.",
     "cta": "Mes projets",
     "placeholder": "La vidéo de présentation arrive bientôt"
   },

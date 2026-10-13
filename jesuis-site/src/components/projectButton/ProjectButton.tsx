@@ -1,7 +1,13 @@
 import { useTranslations } from "next-intl";
 import type { SiteSettings } from "@/src/sanity/types";
+import { TelegramIcon } from "../icons/Icons";
 
-// Кнопка главного проекта: «Скоро» или «Присоединиться» — переключается в админке
+// Проект открыт, только если в админке статус «Открыт» и указана ссылка
+export function isProjectOpen(settings: SiteSettings) {
+  return settings.mainProjectStatus === "open" && Boolean(settings.mainProjectUrl);
+}
+
+// Кнопка главного проекта: «Скоро» или «Перейти в Telegram» — переключается в админке
 export default function ProjectButton({
   settings,
   variant = "primary",
@@ -10,9 +16,8 @@ export default function ProjectButton({
   variant?: "primary" | "light";
 }) {
   const t = useTranslations("project");
-  const isOpen = settings.mainProjectStatus === "open" && settings.mainProjectUrl;
 
-  if (!isOpen) {
+  if (!isProjectOpen(settings)) {
     return (
       <span className={`btn btn--${variant === "light" ? "light" : "outline"}`} aria-disabled="true">
         {t("soon")}
@@ -27,7 +32,7 @@ export default function ProjectButton({
       rel="noopener noreferrer"
       className={`btn btn--${variant === "light" ? "gold" : "primary"}`}
     >
-      {t("join")}
+      <TelegramIcon size={18} /> {t("join")}
     </a>
   );
 }

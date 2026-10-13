@@ -2,7 +2,7 @@ import {defineType, defineField} from 'sanity'
 
 const PROJECT_STATUS_OPTIONS = [
   {title: 'Скоро (кнопка «Скоро»)', value: 'soon'},
-  {title: 'Открыт (кнопка «Присоединиться»)', value: 'open'},
+  {title: 'Открыт (кнопка «Перейти в Telegram»)', value: 'open'},
 ]
 
 export default defineType({
@@ -30,7 +30,7 @@ export default defineType({
 
     defineField({
       name: 'mainProjectUrl',
-      title: 'Ссылка для кнопки «Присоединиться» (Telegram-канал)',
+      title: 'Ссылка для кнопки «Перейти в Telegram»',
       type: 'url',
       group: 'project',
     }),

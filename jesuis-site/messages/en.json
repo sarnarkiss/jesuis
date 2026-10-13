@@ -68,10 +68,16 @@
     ],
     "more": "About the project",
     "soon": "Coming soon",
-    "join": "Join",
+    "join": "Join on Telegram",
     "quote": "The path of a woman who one day realises: the most important journey is the journey back to herself.",
     "soonNote": "The programme is being prepared. Get the free guide and you'll be the first to hear about the launch.",
-    "openNote": "Payment and participation are via the project's Telegram channel."
+    "openNote": "My author's space on Telegram. Choose the topics that interest you and get to know my world.",
+    "telegram": {
+      "title": "Je Suis — I Am",
+      "text": "My author's space on Telegram, where I write books, texts, observations and projects about life, the search for oneself and new meanings.",
+      "hint": "Choose the topics that interest you and get to know my world.",
+      "welcome": "Welcome!"
+    }
   },
   "products": {
     "eyebrow": "My products",
@@ -102,7 +108,7 @@
   "video": {
     "eyebrow": "Video",
     "title": "Let's get acquainted",
-    "text": "Not an advert. Just a conversation about who I am and why I do what I do.",
+    "text": "Today I live on the French Riviera, and this is already my third immigration. A new chapter of my life has begun here, and I want to share it with you through my thoughts, observations, books and discoveries.",
     "cta": "My projects",
     "placeholder": "The introduction video will appear here soon"
   },

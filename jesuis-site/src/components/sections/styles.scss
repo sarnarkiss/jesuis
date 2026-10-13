@@ -282,6 +282,36 @@
     opacity: 0.85;
   }
 
+  /* Подводка к кнопке Telegram */
+  &__telegram {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 520px;
+    margin-top: 40px;
+
+    + .project-teaser__actions {
+      margin-top: 28px;
+    }
+  }
+
+  &__telegram-title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--color-gold);
+  }
+
+  &__telegram-text {
+    opacity: 0.85;
+  }
+
+  &__telegram-welcome {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-style: italic;
+  }
+
   &__actions {
     display: flex;
     flex-wrap: wrap;
