@@ -312,11 +312,27 @@
     font-style: italic;
   }
 
+  /* Колонка — контейнер: по её ширине кнопки встают в ряд или в столбик */
+  &__head {
+    container-type: inline-size;
+  }
+
+  /* Кнопки одной ширины — по самой длинной подписи */
   &__actions {
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
+    max-width: 100%;
     margin-top: 48px;
+    vertical-align: top;
+
+    @container (min-width: 580px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 640px) {
+      display: grid;
+    }
   }
 
   &__themes-title {
