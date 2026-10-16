@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/src/i18n/routing";
+import { SITE_URL } from "@/src/lib/site";
 import Header from "@/src/components/header/Header";
 import Footer from "@/src/components/footer/Footer";
 
@@ -36,6 +37,8 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
+    // Без адреса сайта ссылка на OG-картинку собралась бы из технического адреса Vercel
+    metadataBase: new URL(SITE_URL),
     title: { default: t("title"), template: `%s — JE SUIS` },
     description: t("description"),
     openGraph: {
@@ -44,6 +47,7 @@ export async function generateMetadata({
       type: "website",
       locale,
     },
+    twitter: { card: "summary_large_image" },
   };
 }
 

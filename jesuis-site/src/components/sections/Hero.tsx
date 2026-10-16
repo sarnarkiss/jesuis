@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
 import type { SanityImage as SanityImageData } from "@/src/sanity/types";
@@ -28,7 +29,11 @@ export default function Hero({ photo }: { photo?: SanityImageData }) {
           </div>
         </div>
 
-        <div className="hero__photo">
+        {/* Фото показывается целиком: блок берёт пропорции самого снимка */}
+        <div
+          className="hero__photo"
+          style={photo ? ({ "--photo-ratio": photo.width / photo.height } as CSSProperties) : undefined}
+        >
           {photo ? (
             <SanityImage
               image={photo}

@@ -23,7 +23,7 @@
 
 /* hero */
 .hero {
-  padding: 56px 0 calc(var(--section-gap) / 2);
+  padding: 24px 0 calc(var(--section-gap) / 2);
 
   &__inner {
     display: grid;
@@ -71,11 +71,18 @@
     margin-top: 48px;
   }
 
+  /* Фото целиком и на всю высоту первого экрана; для заглушки пропорции 4:5 */
   &__photo {
-    aspect-ratio: 4 / 5;
-    max-height: calc(100vh - var(--header-height) - 80px);
+    --photo-ratio: 0.8;
+
+    justify-self: end;
+    width: auto;
+    max-width: 100%;
+    height: calc(100vh - var(--header-height) - 48px);
+    height: calc(100svh - var(--header-height) - 48px);
     min-height: 480px;
-    width: 100%;
+    max-height: 960px;
+    aspect-ratio: var(--photo-ratio);
     border-radius: var(--radius);
     overflow: hidden;
 
@@ -94,17 +101,27 @@
 
     &__photo {
       order: -1;
+      justify-self: center;
+      width: min(100%, calc(80vh * var(--photo-ratio)));
+      height: auto;
       min-height: 0;
-      max-height: 70vh;
+      max-height: none;
     }
   }
 
+  /* Телефон: фото от края до края экрана, сразу под шапкой */
   @media (max-width: 640px) {
-    padding-top: 24px;
+    padding-top: 0;
+
+    &__inner {
+      gap: 32px;
+    }
 
     &__photo {
-      aspect-ratio: auto;
-      height: 45vh;
+      width: calc(100% + 2 * var(--gutter));
+      max-width: none;
+      margin-inline: calc(-1 * var(--gutter));
+      border-radius: 0;
     }
 
     &__actions .btn {

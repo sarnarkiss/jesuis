@@ -160,7 +160,29 @@
     "privacy": "Politique de confidentialité",
     "terms": "Conditions d'achat",
     "personal-data": "Traitement des données personnelles",
-    "placeholder": "Le texte de ce document sera publié prochainement."
+    "docs": {
+      "privacy": [
+        "Je respecte la vie privée des visiteurs du site narinesarkisova.com.",
+        "Les données personnelles que vous transmettez via les formulaires du site (nom, e-mail, texte du message) ou lors d'une commande sont utilisées pour répondre à vos demandes, traiter les commandes et vous fournir les contenus achetés.",
+        "Vos données ne sont jamais vendues à des tiers. Si nécessaire, elles peuvent être transmises aux services techniques et de paiement qui assurent le fonctionnement du site : l'hébergeur, le service d'envoi d'e-mails et Tribute, le service de paiement utilisé pour les achats.",
+        "Vous pouvez demander l'accès à vos données personnelles, leur rectification ou leur suppression en écrivant à {email}.",
+        "Le site n'utilise qu'un seul cookie technique, qui mémorise la langue choisie. Aucun cookie publicitaire ou de mesure d'audience n'est utilisé."
+      ],
+      "terms": [
+        "Le site peut proposer des livres de l'autrice, des contenus numériques, des jeux de transformation et d'autres produits.",
+        "Le prix, le contenu et le format de chaque produit sont indiqués sur la page de l'offre correspondante.",
+        "Le paiement s'effectue via le service Tribute sur Telegram. Après confirmation du paiement, le produit numérique est fourni selon les modalités indiquées lors de l'achat.",
+        "Les contenus de l'autrice sont protégés par le droit de la propriété intellectuelle. Toute copie, diffusion ou utilisation commerciale sans l'autorisation de l'autrice est interdite, sauf dans les cas prévus par la loi.",
+        "Les conditions d'annulation, de remboursement et le droit de rétractation sont régis par la législation applicable et communiqués à l'acheteur avant la commande.",
+        "Pour toute question relative à un achat : {email}."
+      ],
+      "personal-data": [
+        "Vos données personnelles sont traitées uniquement aux fins nécessaires au fonctionnement du site, à la réponse à vos demandes et à l'exécution des commandes.",
+        "Vous avez le droit de demander l'accès à vos données, leur rectification ou leur suppression, ainsi que d'exercer les autres droits prévus par la législation applicable.",
+        "Pour toute question, écrivez à {email}.",
+        "Pour en savoir plus, consultez la {privacy}."
+      ]
+    }
   },
   "notFound": {
     "title": "Page introuvable",

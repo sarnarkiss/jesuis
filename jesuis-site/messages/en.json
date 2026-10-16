@@ -160,7 +160,29 @@
     "privacy": "Privacy policy",
     "terms": "Terms of purchase",
     "personal-data": "Personal data processing",
-    "placeholder": "The text of this document will be published soon."
+    "docs": {
+      "privacy": [
+        "I respect the privacy of visitors to narinesarkisova.com.",
+        "The personal data you provide through the forms on the site (name, email, message text) or when placing an order is used to reply to your enquiries, process orders and deliver the materials you have purchased.",
+        "Your data is never sold to third parties. Where necessary, it may be shared with the technical and payment services that keep the site running: the hosting provider, the email delivery service and Tribute, the payment service used for purchases.",
+        "You can request access to your personal data, its correction or deletion by writing to {email}.",
+        "The site uses only one technical cookie, which remembers your chosen language. No advertising or analytics cookies are used."
+      ],
+      "terms": [
+        "The site may offer the author's books, digital materials, transformational games and other products.",
+        "The price, content and format of each product are stated on the page of the corresponding offer.",
+        "Payment is made through the Tribute service in Telegram. Once payment is confirmed, the digital product is delivered in the way stated at the time of purchase.",
+        "The author's materials are protected by intellectual property law. Copying, distributing or using them commercially without the author's permission is not allowed, except where the law provides otherwise.",
+        "The terms for cancelling a purchase, refunds and the right of withdrawal are governed by applicable law and are communicated to the buyer before the order is placed.",
+        "For questions about purchases: {email}."
+      ],
+      "personal-data": [
+        "Your personal data is processed only for the purposes necessary for the site to work, to reply to your enquiries and to fulfil orders.",
+        "You have the right to request access to your data, its correction or deletion, and to exercise the other rights provided by applicable law.",
+        "For any questions, please write to {email}.",
+        "More details can be found in the {privacy}."
+      ]
+    }
   },
   "notFound": {
     "title": "Page not found",
