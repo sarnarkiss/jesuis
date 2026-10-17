@@ -7,7 +7,6 @@ import { fetchSettings } from "@/src/sanity/fetch";
 import PhotoPlaceholder from "@/src/components/photoPlaceholder/PhotoPlaceholder";
 import SanityImage from "@/src/components/sanityImage/SanityImage";
 import VideoSection from "@/src/components/sections/VideoSection";
-import LeadForm from "@/src/components/leadForm/LeadForm";
 
 import "./styles.scss";
 
@@ -53,6 +52,7 @@ export default async function AboutPage({ params }: Props) {
             <p className="about__intro">{t("intro")}</p>
             {/* Слоган и «Мой путь…» — на главной; здесь только полный текст */}
             <p>{tWho("text")}</p>
+            <p>{tWho("path")}</p>
             {/* TODO: история автора — от заказчицы */}
             <p className="about__sign">
               {tBrand("name")} · {tBrand("role")}
@@ -69,7 +69,6 @@ export default async function AboutPage({ params }: Props) {
         fileUrl={settings.introVideoFileUrl}
         poster={settings.introVideoPoster}
       />
-      <LeadForm />
     </>
   );
 }

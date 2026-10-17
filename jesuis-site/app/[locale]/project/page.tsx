@@ -5,7 +5,6 @@ import type { Locale } from "@/src/i18n/routing";
 import { fetchSettings } from "@/src/sanity/fetch";
 import ProjectButton, { isProjectOpen } from "@/src/components/projectButton/ProjectButton";
 import ProjectThemes from "@/src/components/sections/ProjectThemes";
-import LeadForm from "@/src/components/leadForm/LeadForm";
 
 import "./styles.scss";
 
@@ -50,7 +49,6 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </section>
 
-      <LeadForm />
     </>
   );
 }

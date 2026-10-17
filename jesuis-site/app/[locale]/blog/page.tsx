@@ -5,6 +5,7 @@ import type { Locale } from "@/src/i18n/routing";
 import { fetchPosts } from "@/src/sanity/fetch";
 import PostCard from "@/src/components/postCard/PostCard";
 import LeadForm from "@/src/components/leadForm/LeadForm";
+import { isMailConfigured } from "@/src/lib/mail";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -41,7 +42,7 @@ export default async function BlogPage({ params }: Props) {
         )}
       </section>
 
-      <LeadForm />
+      {isMailConfigured() && <LeadForm />}
     </>
   );
 }

@@ -44,6 +44,12 @@ export function fetchPosts(locale: Locale, limit = 100) {
   return query<PostCard[]>(postsQuery, { locale, limit }, []);
 }
 
+// Пока статей нет, «Мои мысли» скрываются из меню и с главной
+export async function fetchHasPosts() {
+  const count = await query<number>(`count(*[_type == "post" && defined(slug.current)])`, {}, 0);
+  return count > 0;
+}
+
 export function fetchPost(locale: Locale, slug: string) {
   return query<Post | null>(postBySlugQuery, { locale, slug }, null);
 }

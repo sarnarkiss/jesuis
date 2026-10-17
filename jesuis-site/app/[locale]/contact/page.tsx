@@ -5,6 +5,7 @@ import type { Locale } from "@/src/i18n/routing";
 import { fetchSettings } from "@/src/sanity/fetch";
 import ContactsSection from "@/src/components/sections/ContactsSection";
 import ContactForm from "@/src/components/contactForm/ContactForm";
+import { isMailConfigured } from "@/src/lib/mail";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -22,7 +23,7 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <ContactsSection settings={settings} asPageHead>
-      <ContactForm />
+      {isMailConfigured() && <ContactForm />}
     </ContactsSection>
   );
 }

@@ -2,12 +2,10 @@ import { setRequestLocale } from "next-intl/server";
 
 import type { Locale } from "@/src/i18n/routing";
 import { fetchHomeProducts, fetchPosts, fetchSettings } from "@/src/sanity/fetch";
+import { isMailConfigured } from "@/src/lib/mail";
 import Hero from "@/src/components/sections/Hero";
-import Who from "@/src/components/sections/Who";
 import Idea from "@/src/components/sections/Idea";
-import ProjectTeaser from "@/src/components/sections/ProjectTeaser";
 import ProductsPreview from "@/src/components/sections/ProductsPreview";
-import VideoSection from "@/src/components/sections/VideoSection";
 import PostsPreview from "@/src/components/sections/PostsPreview";
 import LeadForm from "@/src/components/leadForm/LeadForm";
 import ContactsSection from "@/src/components/sections/ContactsSection";
@@ -26,20 +24,15 @@ export default async function HomePage({
     fetchPosts(locale, 3),
   ]);
 
+  // «Кто я» объединён с первым экраном, философия — с приглашением в Telegram,
+  // видео — на странице «Обо мне»
   return (
     <>
       <Hero photo={settings.heroPhoto} />
-      <Who />
-      <Idea />
-      <ProjectTeaser settings={settings} />
-      <ProductsPreview products={products} />
-      <VideoSection
-        url={settings.introVideoUrl}
-        fileUrl={settings.introVideoFileUrl}
-        poster={settings.introVideoPoster}
-      />
-      <PostsPreview posts={posts} />
-      <LeadForm />
+      <Idea settings={settings} />
+      <ProductsPreview products={products} scrollOnMobile />
+      {posts.length > 0 && <PostsPreview posts={posts} />}
+      {isMailConfigured() && <LeadForm />}
       <ContactsSection settings={settings} />
     </>
   );

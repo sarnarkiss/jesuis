@@ -21,5 +21,10 @@ export const footerNav: NavItem[] = [
   { key: "contact", href: "/contact" },
 ];
 
+// Пункты меню без «Мои мысли», если статей ещё нет
+export function visibleNav(items: NavItem[], hasPosts: boolean) {
+  return hasPosts ? items : items.filter((item) => item.key !== "blog");
+}
+
 export const legalDocs = ["privacy", "terms", "personal-data"] as const;
 export type LegalDoc = (typeof legalDocs)[number];

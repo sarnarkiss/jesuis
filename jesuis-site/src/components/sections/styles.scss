@@ -93,10 +93,12 @@
     }
   }
 
+  /* Планшет и телефон: только фото и кнопки под ним — «Je suis Narina» уже на фото,
+     а «JE SUIS» и «Я ЕСТЬ» идут следующими блоками */
   @media (max-width: 1024px) {
     &__inner {
       grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 24px;
     }
 
     &__photo {
@@ -107,6 +109,25 @@
       min-height: 0;
       max-height: none;
     }
+
+    &__content > :not(.hero__title, .hero__actions) {
+      display: none;
+    }
+
+    /* заголовок страницы остаётся для поисковиков и экранных дикторов */
+    &__title {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    &__actions {
+      justify-content: center;
+      margin-top: 0;
+    }
   }
 
   /* Телефон: фото от края до края экрана, сразу под шапкой */
@@ -114,7 +135,7 @@
     padding-top: 0;
 
     &__inner {
-      gap: 32px;
+      gap: 20px;
     }
 
     &__photo {
@@ -126,44 +147,6 @@
 
     &__actions .btn {
       width: 100%;
-    }
-  }
-}
-
-/* who */
-.who {
-  &__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 80px;
-
-    .eyebrow {
-      grid-column: 1 / -1;
-    }
-  }
-
-  &__title {
-    font-size: clamp(36px, 4vw, 60px);
-  }
-
-  &__body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    padding-top: 8px;
-  }
-
-  &__path {
-    font-family: var(--font-heading);
-    font-size: 26px;
-    font-style: italic;
-  }
-
-  @media (max-width: 900px) {
-    &__inner {
-      grid-template-columns: 1fr;
-      row-gap: 32px;
     }
   }
 }
@@ -238,6 +221,40 @@
     color: var(--color-gold);
   }
 
+  /* приглашение в Telegram и ссылка на проект */
+  &__invite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 640px;
+    margin: 48px auto 0;
+    padding-top: 48px;
+    border-top: 1px solid var(--color-on-dark-line);
+  }
+
+  &__invite-text {
+    opacity: 0.85;
+  }
+
+  &__invite-welcome {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-style: italic;
+  }
+
+  &__invite-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    margin-top: 20px;
+
+    .link-arrow {
+      color: var(--color-on-dark);
+    }
+  }
+
   @media (max-width: 768px) {
     &__columns {
       grid-template-columns: 1fr;
@@ -252,127 +269,19 @@
     &__outro {
       margin-top: 48px;
     }
-  }
-}
 
-/* project teaser */
-.project-teaser {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  padding: 96px 80px;
-  background: var(--gradient-emerald);
-  color: var(--color-on-dark);
-  border-radius: var(--radius);
-
-  .eyebrow {
-    color: var(--color-gold);
-  }
-
-  &__title {
-    font-size: clamp(64px, 8vw, 128px);
-    font-weight: 400;
-    color: inherit;
-  }
-
-  &__subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(28px, 3vw, 44px);
-    font-style: italic;
-    color: var(--color-gold);
-  }
-
-  &__quote {
-    max-width: 520px;
-    margin-top: 32px;
-    padding-left: 20px;
-    border-left: 1px solid var(--color-gold);
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-style: italic;
-    line-height: 1.35;
-  }
-
-  &__lead {
-    max-width: 520px;
-    margin-top: 32px;
-    opacity: 0.85;
-  }
-
-  /* Подводка к кнопке Telegram */
-  &__telegram {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 520px;
-    margin-top: 40px;
-
-    + .project-teaser__actions {
-      margin-top: 28px;
-    }
-  }
-
-  &__telegram-title {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    line-height: 1.2;
-    color: var(--color-gold);
-  }
-
-  &__telegram-text {
-    opacity: 0.85;
-  }
-
-  &__telegram-welcome {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-style: italic;
-  }
-
-  /* Колонка — контейнер: по её ширине кнопки встают в ряд или в столбик */
-  &__head {
-    container-type: inline-size;
-  }
-
-  /* Кнопки одной ширины — по самой длинной подписи */
-  &__actions {
-    display: inline-grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-    max-width: 100%;
-    margin-top: 48px;
-    vertical-align: top;
-
-    @container (min-width: 580px) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    &__invite {
+      margin-top: 40px;
+      padding-top: 40px;
     }
 
-    @media (max-width: 640px) {
-      display: grid;
+    &__invite-actions {
+      align-self: stretch;
+
+      .btn {
+        width: 100%;
+      }
     }
-  }
-
-  &__themes-title {
-    margin-bottom: 24px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    opacity: 0.6;
-  }
-
-  .project-themes__item {
-    border-color: var(--color-on-dark-line);
-  }
-
-  .project-themes__num {
-    color: var(--color-gold);
-  }
-
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 56px 24px;
   }
 }
 

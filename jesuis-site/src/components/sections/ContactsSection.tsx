@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import type { SiteSettings } from "@/src/sanity/types";
+import { CONTACT_EMAIL } from "@/src/lib/site";
 import SocialLinks from "../socialLinks/SocialLinks";
 import { TelegramIcon } from "../icons/Icons";
 
@@ -23,7 +24,7 @@ export default function ContactsSection({
         <div className="contacts__info">
           <span className="eyebrow">{t("eyebrow")}</span>
           <Title className="contacts__title">{t("title")}</Title>
-          <SocialLinks settings={settings} withLabels />
+          <SocialLinks settings={{ ...settings, email: settings.email || CONTACT_EMAIL }} withLabels />
           {settings.telegramUrl && (
             <a
               href={settings.telegramUrl}

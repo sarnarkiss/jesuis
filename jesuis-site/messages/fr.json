@@ -22,17 +22,14 @@
   "hero": {
     "title": "JE SUIS",
     "lead": "La vie commence au moment où vous vous choisissez.",
-    "text": "Autrice et créatrice de livres, de jeux et de projets sur la vie, le changement et l'affirmation de soi.",
     "ctaAbout": "Faire connaissance",
     "ctaProducts": "Mes produits",
     "photo": "Photo de l'autrice"
   },
   "who": {
-    "eyebrow": "Qui je suis",
     "title": "Je n'apprends pas à vivre. J'explore la vie avec vous.",
     "text": "J'écris des livres, je crée des jeux, des guides et des projets d'apprentissage sur ce qui me touche : la femme, ses choix, son ancrage intérieur, l'accomplissement de soi, le changement et la possibilité de commencer une nouvelle vie à tout âge.",
-    "path": "Mon propre chemin est devenu la base de nombreux projets.",
-    "cta": "Mon histoire"
+    "path": "Mon propre chemin est devenu la base de nombreux projets."
   },
   "idea": {
     "eyebrow": "Mon idée principale",
@@ -48,7 +45,8 @@
       "Qu'est-ce que je veux ?",
       "Quelle vie est-ce que je choisis ?"
     ],
-    "outro": "C'est de là qu'est née ma philosophie."
+    "outro": "C'est de là qu'est née ma philosophie.",
+    "projectLink": "Le projet « Je suis — La vie après 50 ans »"
   },
   "project": {
     "eyebrow": "Projet principal",
@@ -73,7 +71,6 @@
     "soonNote": "Le programme est en préparation. Recevez le guide gratuit et soyez la première informée du lancement.",
     "openNote": "Mon espace d'autrice sur Telegram. Choisissez les thèmes qui vous intéressent et découvrez mon univers.",
     "telegram": {
-      "title": "Je Suis",
       "text": "Mon espace d'autrice sur Telegram, où j'écris des livres, des textes, des observations et des projets sur la vie, la quête de soi et de nouveaux sens.",
       "hint": "Choisissez les thèmes qui vous intéressent et découvrez mon univers.",
       "welcome": "Bienvenue !"

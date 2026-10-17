@@ -27,6 +27,11 @@ export async function sendToOwner({ subject, text, replyTo }: Mail) {
   if (error) throw new Error(error.message);
 }
 
+// Формы показываются, только когда отправка писем настроена в Vercel — иначе они выдали бы ошибку
+export function isMailConfigured() {
+  return Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_TO && process.env.CONTACT_FROM);
+}
+
 export function readField(body: Record<string, unknown>, key: string, max = 5000) {
   return String(body[key] ?? "").trim().slice(0, max);
 }

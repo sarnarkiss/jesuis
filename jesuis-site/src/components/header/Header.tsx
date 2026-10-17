@@ -6,18 +6,19 @@ import { useTranslations } from "next-intl";
 
 import { Link, usePathname } from "@/src/i18n/navigation";
 import LanguageSwitcher from "../languageSwitcher/LanguageSwitcher";
-import { mainNav } from "./navItems";
+import { mainNav, visibleNav } from "./navItems";
 
 import "./styles.scss";
 
 const baseClassName = "header";
 
-export default function Header() {
+export default function Header({ hasPosts }: { hasPosts: boolean }) {
   const t = useTranslations("nav");
   const tBrand = useTranslations("brand");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  const nav = visibleNav(mainNav, hasPosts);
 
   useEffect(() => {
     if (!open) return;
@@ -43,7 +44,7 @@ export default function Header() {
           </Link>
 
           <nav className={`${baseClassName}__nav`} aria-label="Primary">
-            {mainNav.map(({ key, href }) => (
+            {nav.map(({ key, href }) => (
               <Link
                 key={key}
                 href={href}
@@ -78,7 +79,7 @@ export default function Header() {
         aria-hidden={!open}
       >
         <nav className={`${baseClassName}__drawer-nav`}>
-          {mainNav.map(({ key, href }) => (
+          {nav.map(({ key, href }) => (
             <Link
               key={key}
               href={href}

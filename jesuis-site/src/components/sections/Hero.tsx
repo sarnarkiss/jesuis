@@ -10,6 +10,7 @@ import "./styles.scss";
 export default function Hero({ photo }: { photo?: SanityImageData }) {
   const t = useTranslations("hero");
   const tBrand = useTranslations("brand");
+  const tWho = useTranslations("who");
 
   return (
     <section className="hero">
@@ -18,7 +19,8 @@ export default function Hero({ photo }: { photo?: SanityImageData }) {
           <span className="eyebrow">JE SUIS · {tBrand("name")}</span>
           <h1 className="hero__title">{t("title")}</h1>
           <p className="hero__lead">{t("lead")}</p>
-          <p className="hero__text">{t("text")}</p>
+          {/* слоган из бывшего блока «Кто я»: подпись «Автор и создатель…» уже есть на фото */}
+          <p className="hero__text">{tWho("title")}</p>
           <div className="hero__actions">
             <Link href="/about" className="btn btn--primary">
               {t("ctaAbout")}

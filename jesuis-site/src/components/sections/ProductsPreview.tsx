@@ -6,7 +6,13 @@ import { ArrowIcon } from "../icons/Icons";
 
 import "./styles.scss";
 
-export default function ProductsPreview({ products }: { products: ProductCardData[] }) {
+export default function ProductsPreview({
+  products,
+  scrollOnMobile = false,
+}: {
+  products: ProductCardData[];
+  scrollOnMobile?: boolean;
+}) {
   const t = useTranslations("products");
 
   return (
@@ -23,7 +29,7 @@ export default function ProductsPreview({ products }: { products: ProductCardDat
         </div>
 
         {products.length ? (
-          <div className="product-grid">
+          <div className={scrollOnMobile ? "product-grid product-grid--scroll" : "product-grid"}>
             {products.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}

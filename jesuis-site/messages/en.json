@@ -22,17 +22,14 @@
   "hero": {
     "title": "I AM",
     "lead": "Life begins the moment you choose yourself.",
-    "text": "Author and creator of books, games and projects about life, change and self-expression.",
     "ctaAbout": "Get to know me",
     "ctaProducts": "My products",
     "photo": "Author photo"
   },
   "who": {
-    "eyebrow": "Who I am",
     "title": "I don't teach how to live. I explore life together with you.",
     "text": "I write books and create games, guides and learning projects about what matters to me: a woman, her choices, her inner foundation, self-fulfilment, change and the chance to begin a new life at any age.",
-    "path": "My own path became the foundation of many of my projects.",
-    "cta": "My story"
+    "path": "My own path became the foundation of many of my projects."
   },
   "idea": {
     "eyebrow": "My main idea",
@@ -48,7 +45,8 @@
       "What do I want?",
       "What life do I choose?"
     ],
-    "outro": "This is where my philosophy was born."
+    "outro": "This is where my philosophy was born.",
+    "projectLink": "The “I Am — Life after 50” project"
   },
   "project": {
     "eyebrow": "Main project",
@@ -73,7 +71,6 @@
     "soonNote": "The programme is being prepared. Get the free guide and you'll be the first to hear about the launch.",
     "openNote": "My author's space on Telegram. Choose the topics that interest you and get to know my world.",
     "telegram": {
-      "title": "Je Suis — I Am",
       "text": "My author's space on Telegram, where I write books, texts, observations and projects about life, the search for oneself and new meanings.",
       "hint": "Choose the topics that interest you and get to know my world.",
       "welcome": "Welcome!"

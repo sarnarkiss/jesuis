@@ -1,10 +1,18 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/navigation";
+import type { SiteSettings } from "@/src/sanity/types";
+import ProjectButton, { isProjectOpen } from "../projectButton/ProjectButton";
+import { ArrowIcon } from "../icons/Icons";
+
 import "./styles.scss";
 
-export default function Idea() {
+// Философия JE SUIS и приглашение в Telegram — один блок вместо двух подряд
+export default function Idea({ settings }: { settings: SiteSettings }) {
   const t = useTranslations("idea");
+  const tProject = useTranslations("project");
   const not = t.raw("not") as string[];
   const questions = t.raw("questions") as string[];
+  const isOpen = isProjectOpen(settings);
 
   return (
     <section className="idea">
@@ -30,6 +38,23 @@ export default function Idea() {
         </div>
 
         <p className="idea__outro">{t("outro")}</p>
+
+        {/* Приглашение в Telegram — когда проект открыт; ссылка на проект — всегда */}
+        <div className="idea__invite">
+          {isOpen && (
+            <>
+              <p className="idea__invite-text">{tProject("telegram.text")}</p>
+              <p className="idea__invite-text">{tProject("telegram.hint")}</p>
+              <p className="idea__invite-welcome">{tProject("telegram.welcome")}</p>
+            </>
+          )}
+          <div className="idea__invite-actions">
+            {isOpen && <ProjectButton settings={settings} variant="light" />}
+            <Link href="/project" className="link-arrow">
+              {t("projectLink")} <ArrowIcon />
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

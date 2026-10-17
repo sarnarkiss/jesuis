@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/src/i18n/routing";
+import { fetchHasPosts } from "@/src/sanity/fetch";
 import { SITE_URL } from "@/src/lib/site";
 import Header from "@/src/components/header/Header";
 import Footer from "@/src/components/footer/Footer";
@@ -62,13 +63,14 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
+  const hasPosts = await fetchHasPosts();
 
   return (
     <html lang={locale} data-scroll-behavior="smooth" className={`${cormorant.variable} ${manrope.variable}`}>
       <body>
         <NextIntlClientProvider>
           <div className="app-main">
-            <Header />
+            <Header hasPosts={hasPosts} />
             <main className="outlet">{children}</main>
             <Footer locale={locale} />
           </div>

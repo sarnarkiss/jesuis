@@ -2,8 +2,8 @@ import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/src/i18n/navigation";
 import type { Locale } from "@/src/i18n/routing";
-import { fetchSettings } from "@/src/sanity/fetch";
-import { footerNav, legalDocs } from "../header/navItems";
+import { fetchHasPosts, fetchSettings } from "@/src/sanity/fetch";
+import { footerNav, legalDocs, visibleNav } from "../header/navItems";
 import SocialLinks from "../socialLinks/SocialLinks";
 
 import "./styles.scss";
@@ -11,9 +11,10 @@ import "./styles.scss";
 const baseClassName = "footer";
 
 export default async function Footer({ locale }: { locale: Locale }) {
-  const [t, settings] = await Promise.all([
+  const [t, settings, hasPosts] = await Promise.all([
     getTranslations({ locale }),
     fetchSettings(),
+    fetchHasPosts(),
   ]);
 
   return (
@@ -29,7 +30,7 @@ export default async function Footer({ locale }: { locale: Locale }) {
         </div>
 
         <nav className={`${baseClassName}__nav`} aria-label="Footer">
-          {footerNav.map(({ key, href }) => (
+          {visibleNav(footerNav, hasPosts).map(({ key, href }) => (
             <Link key={key} href={href} className={`${baseClassName}__link`}>
               {t(`nav.${key}`)}
             </Link>
