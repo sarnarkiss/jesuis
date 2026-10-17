@@ -11,6 +11,8 @@ import ProductCard from "@/src/components/productCard/ProductCard";
 import "./styles.scss";
 
 const CATEGORIES: ProductCategory[] = ["book", "guide", "game", "parable", "course"];
+// Эти разделы появляются во вкладках, только когда в них есть материалы
+const SHOWN_WHEN_FILLED: ProductCategory[] = ["parable", "course"];
 
 type Props = {
   params: Promise<{ locale: Locale }>;
@@ -34,7 +36,11 @@ export default async function ProductsPage({ params, searchParams }: Props) {
 
   const [t, products] = await Promise.all([getTranslations("products"), fetchProducts(locale)]);
   const active = isCategory(category) ? category : null;
-  const visibleCategories = active ? [active] : CATEGORIES;
+  const available = CATEGORIES.filter(
+    (c) =>
+      !SHOWN_WHEN_FILLED.includes(c) || c === active || products.some((p) => p.category === c),
+  );
+  const visibleCategories = active ? [active] : available;
 
   return (
     <>
@@ -53,7 +59,7 @@ export default async function ProductsPage({ params, searchParams }: Props) {
           >
             {t("all")}
           </Link>
-          {CATEGORIES.map((c) => (
+          {available.map((c) => (
             <Link
               key={c}
               href={{ pathname: "/products", query: { category: c } }}
@@ -66,13 +72,12 @@ export default async function ProductsPage({ params, searchParams }: Props) {
 
         {visibleCategories.map((c) => {
           const items = products.filter((p) => p.category === c);
-          // Во вкладке «Все» пустые разделы не показываем, кроме программ — у них есть пояснение
-          if (!items.length && !active && c !== "course") return null;
+          // Во вкладке «Все» пустые разделы не показываем
+          if (!items.length && !active) return null;
 
           return (
             <section key={c} className="products-group">
               <h2 className="products-group__title">{t(`categories.${c}`)}</h2>
-              {c === "course" && <p className="products-group__note">{t("coursesNote")}</p>}
               {items.length ? (
                 <div className="product-grid">
                   {items.map((product) => (
@@ -80,7 +85,7 @@ export default async function ProductsPage({ params, searchParams }: Props) {
                   ))}
                 </div>
               ) : (
-                c !== "course" && <p className="empty-note">{t("empty")}</p>
+                <p className="empty-note">{t("empty")}</p>
               )}
             </section>
           );
